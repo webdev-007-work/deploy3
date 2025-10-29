@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OnAssist - AI-Powered Blogging Platform | Latest Articles & Insights</title>
+  <meta name="description"
+    content="Discover amazing content powered by AI. OnAssist combines human creativity with artificial intelligence to deliver engaging articles on technology, lifestyle, travel, and more." />
+  <meta name="keywords"
+    content="AI blog, artificial intelligence, technology articles, lifestyle content, travel guides, OnAssist, blogging platform, AI-powered content" />
+  <meta name="author" content="OnAssist" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="en" />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="OnAssist - AI-Powered Blogging Platform" />
+  <meta property="og:description"
+    content="Discover amazing content powered by AI. Latest articles on technology, lifestyle, travel, and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://onassist.com" />
+  <meta property="og:site_name" content="OnAssist" />
+  <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/763/763812.png" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="OnAssist - AI-Powered Blogging Platform" />
+  <meta name="twitter:description"
+    content="Discover amazing content powered by AI. Latest articles on technology, lifestyle, travel, and more." />
+  <meta name="twitter:image" content="https://cdn-icons-png.flaticon.com/512/763/763812.png" />
+
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://onassist.com" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/763/763812.png" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16696189784"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'AW-16696189784');
+  </script>
+  <!-- Event snippet for Page view conversion page -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof (url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-16696189784/t3G7CN-HhOIaENjGrpk-',
+        'value': 1.0,
+        'currency': 'USD',
+        'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+
+  <!-- TrackWiser Analytics Script -->
+  <!-- TrackWiser Analytics Script -->
+  <!-- TrackWiser Analytics Script -->
+  <script>
+    (function () {
+      // TrackWiser configuration
+      var trackingCode = 'uc9l85y3bul4qjkiw862c';
+      var apiUrl = 'https://ltluebewuhheisbbjcss.supabase.co/functions/v1/track-event';
+      var heatmapApiUrl = 'https://ltluebewuhheisbbjcss.supabase.co/functions/v1/track-heatmap';
+
+      // Generate or get visitor ID
+      function getVisitorId() {
+        var visitorId = localStorage.getItem('tw_visitor_id');
+        if (!visitorId) {
+          visitorId = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+          localStorage.setItem('tw_visitor_id', visitorId);
+        }
+        return visitorId;
+      }
+
+      // Generate session ID
+      function getSessionId() {
+        var sessionId = sessionStorage.getItem('tw_session_id');
+        if (!sessionId) {
+          sessionId = 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+          sessionStorage.setItem('tw_session_id', sessionId);
+        }
+        return sessionId;
+      }
+
+      // Send tracking event
+      function sendEvent(eventType, eventData) {
+        var data = {
+          tracking_code: trackingCode,
+          event_type: eventType || 'page_view',
+          visitor_id: getVisitorId(),
+          session_id: getSessionId(),
+          page_url: window.location.href,
+          referrer: document.referrer || '',
+          user_agent: navigator.userAgent,
+          timestamp: new Date().toISOString(),
+          data: eventData || {}
+        };
+
+        console.log('TrackWiser: Sending event', eventType, data);
+
+        // Use fetch to send data
+        fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        }).then(function (response) {
+          return response.json();
+        }).then(function (result) {
+          if (result.success) {
+            console.log('TrackWiser: Event sent successfully', result);
+          } else {
+            console.error('TrackWiser: Failed to send event', result);
+          }
+        }).catch(function (error) {
+          console.error('TrackWiser: Error sending event:', error);
+        });
+      }
+
+      // Track page view on load
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+          sendEvent('page_view');
+        });
+      } else {
+        sendEvent('page_view');
+      }
+
+      // Send heatmap event
+      function sendHeatmapEvent(eventType, element, x, y) {
+        // Get better element information
+        var elementInfo = '';
+        var elementText = '';
+
+        if (element) {
+          // Get readable text (prefer text content over inner text)
+          elementText = element.textContent?.trim().substring(0, 100) || element.innerText?.trim().substring(0, 100) || '';
+
+          // Create a cleaner selector
+          var selector = element.tagName.toLowerCase();
+
+          // Add ID if available
+          if (element.id) {
+            selector += '#' + element.id;
+          }
+          // Add a few key classes (max 3) instead of all classes
+          else if (element.className) {
+            var classes = element.className.split(' ').filter(function (c) {
+              return c.length > 0 && !c.includes('bg-') && !c.includes('text-') && !c.includes('border-') && !c.includes('rounded-');
+            });
+            if (classes.length > 0) {
+              selector += '.' + classes.slice(0, 3).join('.');
+            }
+          }
+
+          // If we have readable text, use it as the main identifier
+          if (elementText.length > 0 && elementText.length < 50) {
+            elementInfo = elementText;
+          } else {
+            elementInfo = selector;
+          }
+        }
+
+        var data = {
+          tracking_code: trackingCode,
+          event_type: eventType,
+          page_url: window.location.href,
+          x_position: x,
+          y_position: y,
+          element_selector: elementInfo,
+          element_text: elementText,
+          session_id: getSessionId(),
+          visitor_id: getVisitorId()
+        };
+
+        console.log('TrackWiser: Sending heatmap event', eventType, data);
+
+        fetch(heatmapApiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        }).catch(function (error) {
+          console.error('TrackWiser: Error sending heatmap event', error);
+        });
+      }
+
+      // Track clicks on important elements
+      document.addEventListener('click', function (e) {
+        var target = e.target;
+        if (target.tagName === 'A' || target.tagName === 'BUTTON' || target.classList.contains('trackable')) {
+          sendEvent('click', {
+            element: target.tagName,
+            text: target.textContent || target.innerText || '',
+            href: target.href || '',
+            class: target.className || ''
+          });
+        }
+
+        // Send heatmap click event
+        sendHeatmapEvent('click', target, e.clientX, e.clientY);
+      });
+
+      // Track form submissions
+      document.addEventListener('submit', function (e) {
+        var form = e.target;
+        if (form.tagName === 'FORM') {
+          sendEvent('form_submit', {
+            form_id: form.id || '',
+            form_name: form.name || '',
+            action: form.action || ''
+          });
+
+          // Send heatmap form event
+          sendHeatmapEvent('form_submit', form, 0, 0);
+        }
+      });
+
+      // Track scroll depth
+      var maxScroll = 0;
+      var lastScrollTime = 0;
+      window.addEventListener('scroll', function () {
+        var scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+          maxScroll = scrollPercent;
+          sendEvent('scroll', { depth: scrollPercent });
+        }
+
+        // Send heatmap scroll event (throttled)
+        var now = Date.now();
+        if (now - lastScrollTime > 1000) {
+          sendHeatmapEvent('scroll', null, 0, window.scrollY);
+          lastScrollTime = now;
+        }
+      });
+
+      // Track hover events (throttled)
+      var hoverTimeout;
+      document.addEventListener('mouseover', function (e) {
+        clearTimeout(hoverTimeout);
+        hoverTimeout = setTimeout(function () {
+          sendHeatmapEvent('hover', e.target, e.clientX, e.clientY);
+        }, 500);
+      });
+
+      // Track time on page
+      var startTime = Date.now();
+      window.addEventListener('beforeunload', function () {
+        var timeSpent = Math.round((Date.now() - startTime) / 1000);
+        sendEvent('time_on_page', { seconds: timeSpent });
+      });
+
+      // Expose tracking function globally
+      window.trackWiser = {
+        track: sendEvent,
+        getVisitorId: getVisitorId,
+        getSessionId: getSessionId
+      };
+
+      console.log('TrackWiser Analytics initialized for Auto Blog');
+    })();
+  </script>
+
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+
+  <!-- Default Statcounter code for TV Streaming -->
+  <script type="text/javascript">
+    var sc_project = 13146474;
+    var sc_invisible = 1;
+    var sc_security = "3fffbe23"; 
+  </script>
+
+
+  <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+  <noscript>
+    <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img
+          class="statcounter" src="https://c.statcounter.com/13146474/0/3fffbe23/1/" alt="Web Analytics"
+          referrerPolicy="no-referrer-when-downgrade"></a></div>
+  </noscript>
+  <!-- End of Statcounter Code -->
+  <!-- Default Statcounter code for Smart DoorStep https://www.smartdoorstep.com/
+-->
+  <script type="text/javascript">
+    var sc_project = 13155840;
+    var sc_invisible = 1;
+    var sc_security = "8186cc85"; 
+  </script>
+  <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+  <noscript>
+    <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img
+          class="statcounter" src="https://c.statcounter.com/13155840/0/8186cc85/1/" alt="Web Analytics"
+          referrerPolicy="no-referrer-when-downgrade"></a></div>
+  </noscript>
+  <!-- End of Statcounter Code -->
+</body>
+
+</html>
